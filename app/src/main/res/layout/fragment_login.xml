@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true"
+    tools:context=".LoginFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_large"
+        android:layout_marginVertical="10dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_logo"
+            app:layout_constraintVertical_bias="0.15">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_1"
+                style="@style/Text20W500H24"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="@string/login"
+                android:textColor="@color/secondaryColor"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailTextField"
+                style="@style/InputLayoutRHD"
+                android:layout_width="match_parent"
+                android:layout_marginTop="32dp"
+                android:textColorHint="@color/secondaryColor"
+                app:layout_constraintTop_toBottomOf="@+id/tv_1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_email"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordTextField"
+                style="@style/InputLayoutRHD"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_8"
+                android:textColorHint="@color/secondaryColor"
+                app:endIconMode="password_toggle"
+                app:layout_constraintTop_toBottomOf="@+id/emailTextField">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_password"
+                    style="@style/EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/enterButton"
+                style="@style/Button"
+                android:layout_width="match_parent"
+                android:layout_marginTop="40dp"
+                android:text="@string/login_botton_enter"
+                app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView4"
+                style="@style/Text16W400H24"
+                android:layout_width="match_parent"
+                android:layout_marginTop="64dp"
+                android:gravity="center"
+                android:textColor="@color/colorGray5"
+                android:text="@string/login_text_recover"
+                android:textStyle="normal"
+                app:layout_constraintTop_toBottomOf="@+id/enterButton" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/forgotNipButton"
+                style="@style/ButtonText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/login_text_recover_password"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textView5"
+            style="@style/Text12W400H16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_24"
+            android:gravity="center"
+            android:text="@string/login_human"
+            android:textColor="@color/colorGray4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_login"
+            app:layout_constraintVertical_bias="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

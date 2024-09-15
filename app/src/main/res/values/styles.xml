@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Toolbar-->
+
+    <style name="Toolbar" parent="@style/Widget.Material3.Toolbar.OnSurface">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Toolbar</item>
+        <item name="titleTextAppearance">@style/Text18W600H24</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+        <item name="android:background">@color/colorWhite</item>
+    </style>
+
+    <style name="ThemeOverlay.App.Toolbar" parent="">
+        <item name="colorControlNormal">@color/primaryColor</item>
+    </style>
+
+    <!--Text Style-->
+
+    <style name="Text40W300H56">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:textFontWeight" tools:targetApi="p">300</item>
+        <item name="lineHeight">56sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="fontFamily">@font/robotoflex</item>
+    </style>
+
+    <style name="Text32W500H48">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">32sp</item>
+        <item name="lineHeight">48dp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+
+    <style name="Text28W400H40">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">28sp</item>
+        <item name="lineHeight">40sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+
+    <style name="Text24W400H32">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24sp</item>
+        <item name="lineHeight">32sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+
+    <style name="Text20W500H24">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">20sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">500</item>
+    </style>
+
+    <style name="Text18W600H24">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+    </style>
+
+    <style name="Text16W700H24">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+
+    <style name="Text16W600H24">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+    </style>
+
+    <style name="Text16W400H24">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+
+    <style name="Text14W700H24">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+
+    <style name="Text14W600H24">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+    </style>
+
+    <style name="Text14W400H24">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">24sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+
+    <style name="Text12W600H16">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+    </style>
+
+    <style name="Text12W400H16">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="lineHeight">16sp</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+
+    <style name="Text10W700H16">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="lineHeight">16sp</item>
+        <item name="android:letterSpacing">0.15</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">700</item>
+    </style>
+
+    <style name="Text10W400H16">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@font/robotoflex</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
+    </style>
+
+    <!--Input Layout , EditText, Spinner Style-->
+
+    <style name="InputLayoutRHD" parent="Widget.Material3.TextInputLayout.OutlinedBox.Dense">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="boxCornerRadiusTopStart">8dp</item>
+        <item name="boxCornerRadiusTopEnd">8dp</item>
+        <item name="boxCornerRadiusBottomStart">8dp</item>
+        <item name="boxCornerRadiusBottomEnd">8dp</item>
+        <item name="android:textColorHint">@color/colorGray3</item>
+        <item name="boxStrokeColor">@color/selector_state_focused</item>
+        <item name="boxStrokeErrorColor">@color/colorFucsia3</item>
+        <item name="errorIconTint">@color/colorFucsia3</item>
+        <item name="errorTextColor">@color/colorFucsia3</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="errorEnabled">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="EditText" parent="Text16W400H24">
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Button" parent="Widget.Material3.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:backgroundTint">@color/primaryColor</item>
+        <item name="cornerRadius">8dp</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:lineHeight" tools:targetApi="p">20sp</item>
+        <item name="android:lineSpacingExtra">-2sp</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ButtonText" parent="Widget.Material3.Button.TextButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primaryColor</item>
+        <item name="android:letterSpacing">0.08</item>
+        <item name="android:lineHeight" tools:targetApi="p">20sp</item>
+        <item name="android:lineSpacingExtra">-2sp</item>
+        <item name="android:textFontWeight" tools:targetApi="p">600</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

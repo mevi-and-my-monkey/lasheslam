@@ -2,4 +2,75 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primaryColor">#F39EBB</color>
+    <color name="primaryColorEnable">#80F39EBB</color>
+    <color name="secondaryColor">#405B75</color>
+    <color name="tertiaryColor">#E8EEF8</color>
+
+    <color name="colorBlack">#FF000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorTransparent">#00FFFFFF</color>
+    <color name="colorTransparentBlueLight">#564CC0FF</color>
+
+    <color name="colorBlack1">#3C3C3C</color>
+    <color name="colorBlack2">#3E3E3E</color>
+    <color name="colorBlack3">#3F3F3F</color>
+
+    <color name="colorGray1">#586366</color>
+    <color name="colorGray2">#AAAAAA</color>
+    <color name="colorGray3">#7E90A0</color>
+    <color name="colorGray4">#879194</color>
+    <color name="colorGray5">#ABB8C3</color>
+    <color name="colorGray6">#C0C0C0</color>
+    <color name="colorGray7">#CDCDCD</color>
+    <color name="colorGray8">#D9FFFFFF</color>
+    <color name="colorGray9">#eeeeee</color>
+    <color name="colorGray10">#E6E6E6</color>
+    <color name="colorGray11">#eaeafa</color>
+    <color name="colorGray12">#E8F4FD</color>
+    <color name="colorGray13">#F6F9FD</color>
+    <color name="colorGray14">#e5e5e5</color>
+    <color name="colorGray15">#f9f9f9</color>
+
+    <color name="colorBlue1">#1973E8</color>
+    <color name="colorBlue2">#1776BF</color>
+    <color name="colorBlue3">#0F9ABD</color>
+    <color name="colorBlue4">#4D88B6</color>
+    <color name="colorBlue5">#567599</color>
+    <color name="colorBlue6">#10568B</color>
+    <color name="colorBlue7">#8C015A8A</color>
+    <color name="colorBlue8">#3A7190</color>
+    <color name="colorBlue13">#6F8AAF</color>
+    <color name="colorBlue9">#9DAEC8</color>
+    <color name="colorBlue10">#D2E3FC</color>
+    <color name="colorBlue11">#CED8E8</color>
+    <color name="colorBlue12">#cbdcdf</color>
+    <color name="colorBlue14">#D9D9D9</color>
+    <color name="colorBlue15">#E1E9F0</color>
+
+    <color name="colorRed1">#941100</color>
+    <color name="colorRed2">#AC0000</color>
+    <color name="colorRed3">#F44336</color>
+    <color name="colorRed4">#FF715B</color>
+    <color name="colorRed5">#FAEAF2</color>
+
+    <color name="colorOrange1">#ff8000</color>
+    <color name="colorOrange2">#E36F1E</color>
+    <color name="colorOrange3">#EC930E</color>
+    <color name="colorOrange4">#C2933E</color>
+    <color name="colorOrange5">#FBF4C8</color>
+
+    <color name="colorGreen1">#80009CA6</color>
+    <color name="colorGreen2">#009CA6</color>
+    <color name="colorGreen3">#31A07C</color>
+    <color name="colorGreen4">#91B605</color>
+    <color name="colorGreen5">#51B594</color>
+    <color name="colorGreen6">#E4FAF2</color>
+
+    <color name="colorFucsia1">#753E7B</color>
+    <color name="colorFucsia2">#AB4957</color>
+    <color name="colorFucsia3">#BD4A83</color>
+    <color name="colorFucsia4">#F7E1E8</color>
+    <color name="colorFucsia5">#EEECFF</color>
+    <color name="colorFucsia6">#F8F7FE</color>
 </resources>

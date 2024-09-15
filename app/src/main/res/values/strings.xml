@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">lasheslam</string>
+    <!--Login Activity -->
+    <string name="a_login_error_email_incorrect">Favor de ingresar un correo electrónico correcto.</string>
+    <string name="a_login_error_email_empty">Favor de ingresar su correo electrónico.</string>
+    <string name="a_login_error_nip_empty">Favor de ingresar su contraseña.</string>
+    <string name="validate_jwt">Tu sesion a finalizado.</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="login_email">Usuario</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_botton_enter">Acceder</string>
+    <string name="login_text_recover">¿No pudiste acceder a tu cuenta?</string>
+    <string name="login_text_recover_password">Recuperar contraseña</string>
+    <string name="login_human">LashesLam by Mevi®</string>
 </resources>
