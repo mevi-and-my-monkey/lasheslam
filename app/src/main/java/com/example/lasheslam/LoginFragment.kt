@@ -2,6 +2,7 @@ package com.example.lasheslam
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,17 +11,26 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.lasheslam.core.GralCtrlEditText
 import com.example.lasheslam.databinding.FragmentLoginBinding
+import com.example.lasheslam.utils.Utilities.Companion.isValidEmail
 import com.example.lasheslam.utils.Utilities.Companion.setOnClickListenerCloseUnfocus
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
+    private lateinit var googleSignInClient: GoogleSignInClient
     private var gralCtrlEditText = GralCtrlEditText()
     private var loginInterface: LoginInterface? = null
+    val GOOGLE_SIGN_IN = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        configurarGoogleSignIn()
         openSession()
     }
 
@@ -70,14 +80,25 @@ class LoginFragment : Fragment() {
             }
         }
         binding.forgotNipButton.setOnClickListenerCloseUnfocus(requireContext(),binding.root) {
-
+            val bottomSheet = RecoverPassFragment()
+            bottomSheet.show(requireActivity().supportFragmentManager, bottomSheet.tag)
         }
         binding.creatAccountbutton.setOnClickListenerCloseUnfocus(requireContext(),binding.root) {
             val bottomSheet = CreateAccountFragment()
             bottomSheet.show(requireActivity().supportFragmentManager, bottomSheet.tag)
         }
+        binding.continueGooglebutton.setOnClickListenerCloseUnfocus(requireContext(), binding.root){
+            iniciarSesionConGoogle()
+        }
     }
+    private fun configurarGoogleSignIn() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))  // Aquí va el client ID de Firebase
+            .requestEmail()
+            .build()
 
+        googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
+    }
     private fun openSession() {
         val auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
@@ -102,11 +123,6 @@ class LoginFragment : Fragment() {
         return validate
     }
 
-    private fun isValidEmail(correo: String): Boolean {
-        val patron = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")
-        return correo.matches(patron)
-    }
-
     private fun login(email: String, password: String) {
         val auth = FirebaseAuth.getInstance()
 
@@ -121,6 +137,50 @@ class LoginFragment : Fragment() {
                 } else {
                     task.exception?.let {
                         Log.i("AUTH_SIGN_IN","Error al iniciar sesión: ${it.message}")
+                    }
+                }
+            }
+    }
+
+    private fun iniciarSesionConGoogle() {
+        val signInIntent = googleSignInClient.signInIntent
+        startActivityForResult(signInIntent, GOOGLE_SIGN_IN)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == GOOGLE_SIGN_IN) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            try {
+                val account = task.getResult(ApiException::class.java)
+                if (account != null) {
+                    firebaseAuthConGoogle(account.idToken!!)
+                }
+            } catch (e: ApiException) {
+                println("Error en Google Sign-In: ${e.message}")
+            }
+        }
+    }
+
+    private fun firebaseAuthConGoogle(idToken: String) {
+        val auth = FirebaseAuth.getInstance()
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+
+        auth.signInWithCredential(credential).addOnCompleteListener(requireActivity()) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    user?.let {
+                        loginInterface?.showHomeActivity()
+                        println("Inicio de sesión con Google exitoso, UID: ${user.uid}")
+                        println("Inicio de sesión con Google exitoso, UID: ${user.email}")
+                        println("Inicio de sesión con Google exitoso, UID: ${user.displayName}")
+                        println("Inicio de sesión con Google exitoso, UID: ${user.photoUrl}")
+                    }
+                } else {
+                    task.exception?.let {
+                        println("Error en la autenticación con Firebase: ${it.message}")
                     }
                 }
             }

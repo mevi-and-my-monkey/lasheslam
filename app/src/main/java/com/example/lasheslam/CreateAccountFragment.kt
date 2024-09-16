@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.lasheslam.core.GralCtrlEditText
 import com.example.lasheslam.databinding.FragmentCreateAccountBinding
+import com.example.lasheslam.utils.Utilities.Companion.isValidEmail
 import com.example.lasheslam.utils.Utilities.Companion.setOnClickListenerCloseUnfocus
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -90,8 +91,5 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
             validate)
         return validate
     }
-    private fun isValidEmail(correo: String): Boolean {
-        val patron = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")
-        return correo.matches(patron)
-    }
+
 }

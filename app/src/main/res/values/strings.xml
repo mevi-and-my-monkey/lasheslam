@@ -13,6 +13,10 @@
     <string name="login_text_recover">¿No pudiste acceder a tu cuenta?</string>
     <string name="login_text_recover_password">Recuperar contraseña</string>
     <string name="create_account">Crear cuenta</string>
+    <string name="continue_google">Continua con Google</string>
     <string name="create">Crear</string>
+    <string name="request">Solicitar</string>
     <string name="login_human">LashesLam by Mevi®</string>
+    <string name="default_web_client_id">506028844866-psgv81pgb8acq0irkeg225lmj0toebqn.apps.googleusercontent.com</string>
+
 </resources>

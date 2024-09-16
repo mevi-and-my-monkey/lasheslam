@@ -95,6 +95,14 @@
                 android:text="@string/create_account"
                 app:layout_constraintTop_toBottomOf="@+id/enterButton" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/continueGooglebutton"
+                style="@style/ButtonText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/continue_google"
+                app:layout_constraintTop_toBottomOf="@+id/creatAccountbutton" />
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView4"
                 style="@style/Text16W400H24"

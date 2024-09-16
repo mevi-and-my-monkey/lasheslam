@@ -83,6 +83,8 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.ui.auth)
+    implementation(libs.firebase.auth)
+    implementation(libs.play.services.auth)
 
 }
 kapt {

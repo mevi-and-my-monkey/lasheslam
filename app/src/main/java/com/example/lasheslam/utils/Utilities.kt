@@ -34,7 +34,9 @@ class Utilities {
             } catch (_: Exception) {
             }
         }
-
-
+        fun isValidEmail(correo: String): Boolean {
+            val patron = Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")
+            return correo.matches(patron)
+        }
     }
 }
