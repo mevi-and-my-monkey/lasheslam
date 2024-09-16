@@ -73,4 +73,11 @@
     <color name="colorFucsia4">#F7E1E8</color>
     <color name="colorFucsia5">#EEECFF</color>
     <color name="colorFucsia6">#F8F7FE</color>
+
+    <color name="colorBackSucces">#EAF5E3</color>
+    <color name="colorButtonSucces">#D8E7CB</color>
+    <color name="colorTextSucces">#809579</color>
+    <color name="colorBackError">#F8ECE9</color>
+    <color name="colorButtonError">#EDD4CF</color>
+    <color name="colorTextError">#AF8E8A</color>
 </resources>

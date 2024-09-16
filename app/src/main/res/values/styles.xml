@@ -221,4 +221,10 @@
         <item name="android:textFontWeight" tools:targetApi="p">600</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="AlertDialogCustomTop" parent="MaterialAlertDialog.Material3">
+        <item name="android:backgroundDimAmount">0</item>
+        <item name="elevationOverlayColor">@color/colorFucsia4</item>
+        <item name="elevationOverlayAccentColor">@color/colorFucsia4</item>
+    </style>
 </resources>

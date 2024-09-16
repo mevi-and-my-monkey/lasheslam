@@ -23,7 +23,8 @@
         android:id="@+id/emailTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
         android:textColorHint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_1">
 
@@ -39,7 +40,8 @@
         android:id="@+id/passwordTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
         android:textColorHint="@color/secondaryColor"
         app:endIconMode="password_toggle"
         app:layout_constraintTop_toBottomOf="@+id/emailTextField">
@@ -56,7 +58,8 @@
         android:id="@+id/firstNameTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
         android:textColorHint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_1">
 
@@ -72,7 +75,8 @@
         android:id="@+id/lastNameTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
         android:textColorHint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_1">
 
@@ -88,7 +92,8 @@
         android:id="@+id/phoneNumberTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
         android:textColorHint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_1">
 

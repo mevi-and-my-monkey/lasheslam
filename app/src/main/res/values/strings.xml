@@ -25,5 +25,7 @@
     <string name="create">Crear</string>
     <string name="request">Solicitar</string>
     <string name="login_human">LashesLam by Mevi®</string>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>

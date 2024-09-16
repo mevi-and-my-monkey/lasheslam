@@ -50,19 +50,19 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
         gralCtrlEditText.setDataEditText(
             binding.firstNameTextField,
             binding.etFirstName,
-            getString(R.string.login_email),
+            getString(R.string.first_name),
             null
         )
         gralCtrlEditText.setDataEditText(
             binding.lastNameTextField,
             binding.etLastName,
-            getString(R.string.login_password),
+            getString(R.string.last_name),
             null
         )
         gralCtrlEditText.setDataEditText(
             binding.phoneNumberTextField,
             binding.etPhoneNumber,
-            getString(R.string.login_email),
+            getString(R.string.phone_numbre),
             null
         )
         binding.enterButton.setOnClickListenerCloseUnfocus(requireContext(),binding.root){
@@ -85,12 +85,25 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
                         val userId = user.uid
                         Log.i("AUTH","Registro exitoso, UID: $userId")
                         Log.i("AUTH","${user.email}")
-                        user.sendEmailVerification()
-                        dismiss()
-                    }
+                        val dialog = GenericDialogFragment()
+                            .setType(0)
+                            .setTitle("Registro")
+                            .setMessage("El registro de su cuenta ha sido extiso")
+                            .setPositiveButton("Aceptar"){
+                                dismiss()
+                            }
+                        dialog.show(requireActivity().supportFragmentManager, "customDialog")
+                     }
                 } else {
                     task.exception?.let {
-                        Toast.makeText(requireContext(), "Error al registrar: ${it.message}", Toast.LENGTH_SHORT).show()
+                        val dialog = GenericDialogFragment()
+                            .setType(1)
+                            .setTitle("Error")
+                            .setMessage("Error al registrar: ${it.message}")
+                            .setNegativeButton("Aceptar") {
+                                dismiss()
+                            }
+                        dialog.show(requireActivity().supportFragmentManager, "customDialog")
                     }
                 }
             }
@@ -110,12 +123,12 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
         validate = gralCtrlEditText.validateEditText(
             binding.firstNameTextField,
             binding.etFirstName,
-            getString(R.string.a_login_error_nip_empty),
+            getString(R.string.a_login_error_name_empty),
             validate)
         validate = gralCtrlEditText.validateEditText(
             binding.phoneNumberTextField,
             binding.etPhoneNumber,
-            getString(R.string.a_login_error_nip_empty),
+            getString(R.string.a_login_error_phone_number_empty),
             validate)
         return validate
     }
