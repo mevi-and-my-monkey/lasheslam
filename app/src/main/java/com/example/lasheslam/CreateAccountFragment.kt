@@ -47,6 +47,24 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
             getString(R.string.login_password),
             null
         )
+        gralCtrlEditText.setDataEditText(
+            binding.firstNameTextField,
+            binding.etFirstName,
+            getString(R.string.login_email),
+            null
+        )
+        gralCtrlEditText.setDataEditText(
+            binding.lastNameTextField,
+            binding.etLastName,
+            getString(R.string.login_password),
+            null
+        )
+        gralCtrlEditText.setDataEditText(
+            binding.phoneNumberTextField,
+            binding.etPhoneNumber,
+            getString(R.string.login_email),
+            null
+        )
         binding.enterButton.setOnClickListenerCloseUnfocus(requireContext(),binding.root){
             if (checkFields()) {
                 if (isValidEmail(binding.etEmail.text.toString())){
@@ -87,6 +105,16 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
         validate = gralCtrlEditText.validateEditText(
             binding.passwordTextField,
             binding.etPassword,
+            getString(R.string.a_login_error_nip_empty),
+            validate)
+        validate = gralCtrlEditText.validateEditText(
+            binding.firstNameTextField,
+            binding.etFirstName,
+            getString(R.string.a_login_error_nip_empty),
+            validate)
+        validate = gralCtrlEditText.validateEditText(
+            binding.phoneNumberTextField,
+            binding.etPhoneNumber,
             getString(R.string.a_login_error_nip_empty),
             validate)
         return validate

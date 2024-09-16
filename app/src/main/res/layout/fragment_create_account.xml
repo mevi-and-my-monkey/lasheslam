@@ -14,8 +14,9 @@
         android:layout_width="match_parent"
         android:layout_margin="@dimen/margin_16"
         android:gravity="center"
+        android:textStyle="italic"
         android:text="@string/create_account"
-        android:textColor="@color/secondaryColor"
+        android:textColor="@color/primaryColor"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -49,6 +50,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstNameTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_firstName"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lastNameTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_lastName"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneNumberTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phoneNumber"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
