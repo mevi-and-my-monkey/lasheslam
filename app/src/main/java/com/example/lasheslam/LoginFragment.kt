@@ -79,7 +79,7 @@ class LoginFragment : Fragment() {
                 }
             }
         }
-        binding.forgotNipButton.setOnClickListenerCloseUnfocus(requireContext(),binding.root) {
+        binding.forgotPassButton.setOnClickListenerCloseUnfocus(requireContext(),binding.root) {
             val bottomSheet = RecoverPassFragment()
             bottomSheet.show(requireActivity().supportFragmentManager, bottomSheet.tag)
         }

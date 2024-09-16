@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">lasheslam</string>
+    <string name="default_web_client_id">506028844866-psgv81pgb8acq0irkeg225lmj0toebqn.apps.googleusercontent.com</string>
+
     <!--Login Activity -->
     <string name="a_login_error_email_incorrect">Favor de ingresar un correo electrónico correcto.</string>
     <string name="a_login_error_email_empty">Favor de ingresar su correo electrónico.</string>
@@ -10,13 +12,13 @@
     <string name="login_email">Usuario</string>
     <string name="login_password">Contraseña</string>
     <string name="login_botton_enter">Acceder</string>
-    <string name="login_text_recover">¿No pudiste acceder a tu cuenta?</string>
+    <string name="login_text_account">¿No tienes una cuenta?</string>
     <string name="login_text_recover_password">Recuperar contraseña</string>
+    <string name="forgot_passgword">Has olvidado tu contraseña</string>
     <string name="create_account">Crear cuenta</string>
     <string name="continue_google">Continua con Google</string>
     <string name="create">Crear</string>
     <string name="request">Solicitar</string>
     <string name="login_human">LashesLam by Mevi®</string>
-    <string name="default_web_client_id">506028844866-psgv81pgb8acq0irkeg225lmj0toebqn.apps.googleusercontent.com</string>
 
 </resources>
