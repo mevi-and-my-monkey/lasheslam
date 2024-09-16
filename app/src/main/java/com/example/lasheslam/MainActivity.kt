@@ -59,10 +59,8 @@ class MainActivity : AppCompatActivity(), LoginInterface {
     }
 
     override fun showHomeActivity() {
-        /*
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         finish()
-         */
     }
 }

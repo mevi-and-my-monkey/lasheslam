@@ -83,9 +83,17 @@
                 android:id="@+id/enterButton"
                 style="@style/Button"
                 android:layout_width="match_parent"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="@dimen/margin_8"
                 android:text="@string/login_botton_enter"
                 app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/creatAccountbutton"
+                style="@style/ButtonText"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/create_account"
+                app:layout_constraintTop_toBottomOf="@+id/enterButton" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView4"
@@ -96,7 +104,7 @@
                 android:textColor="@color/colorGray5"
                 android:text="@string/login_text_recover"
                 android:textStyle="normal"
-                app:layout_constraintTop_toBottomOf="@+id/enterButton" />
+                app:layout_constraintTop_toBottomOf="@+id/creatAccountbutton" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/forgotNipButton"
