@@ -11,7 +11,7 @@
     <string name="validate_jwt">Tu sesion a finalizado.</string>
     <string name="login">Iniciar sesión</string>
     <string name="logout">Cerrar sesión</string>
-    <string name="login_email">Usuario</string>
+    <string name="login_email">Correo electrónico</string>
     <string name="login_password">Contraseña</string>
     <string name="first_name">Nombre</string>
     <string name="last_name">Apellido</string>

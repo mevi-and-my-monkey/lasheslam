@@ -14,17 +14,17 @@
         android:layout_width="match_parent"
         android:layout_margin="@dimen/margin_16"
         android:gravity="center"
-        android:textStyle="italic"
         android:text="@string/create_account"
         android:textColor="@color/primaryColor"
+        android:textStyle="italic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/margin_8"
         android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
         android:textColorHint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_1">
 
@@ -33,6 +33,8 @@
             style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="@dimen/margin_8"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,8 +42,8 @@
         android:id="@+id/passwordTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/margin_8"
         android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
         android:textColorHint="@color/secondaryColor"
         app:endIconMode="password_toggle"
         app:layout_constraintTop_toBottomOf="@+id/emailTextField">
@@ -51,6 +53,8 @@
             style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_key"
+            android:drawablePadding="@dimen/margin_8"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,8 +62,8 @@
         android:id="@+id/firstNameTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/margin_8"
         android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
         android:textColorHint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_1">
 
@@ -68,6 +72,8 @@
             style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_name"
+            android:drawablePadding="@dimen/margin_8"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,8 +81,8 @@
         android:id="@+id/lastNameTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/margin_8"
         android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
         android:textColorHint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_1">
 
@@ -85,6 +91,8 @@
             style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_name"
+            android:drawablePadding="@dimen/margin_8"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,8 +100,8 @@
         android:id="@+id/phoneNumberTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/margin_8"
         android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginTop="@dimen/margin_8"
         android:textColorHint="@color/secondaryColor"
         app:layout_constraintTop_toBottomOf="@+id/tv_1">
 
@@ -102,6 +110,8 @@
             style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="@dimen/margin_8"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 

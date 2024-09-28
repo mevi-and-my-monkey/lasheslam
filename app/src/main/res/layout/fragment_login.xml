@@ -58,6 +58,8 @@
                     style="@style/EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="@dimen/margin_8"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,6 +77,8 @@
                     style="@style/EditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_key"
+                    android:drawablePadding="@dimen/margin_8"
                     android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,9 +106,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/shape_rectangle"
                 android:text="@string/continue_google"
                 android:textColor="@color/secondaryColor"
-                android:background="@drawable/shape_rectangle"
                 app:icon="@drawable/ic_google"
                 app:iconSize="25dp"
                 app:iconTint="@null"
@@ -115,9 +119,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/shape_rectangle"
                 android:text="@string/continue_invited_user"
                 android:textColor="@color/secondaryColor"
-                android:background="@drawable/shape_rectangle"
                 app:icon="@drawable/ic_user_invited"
                 app:iconSize="25dp"
                 app:iconTint="@null"
