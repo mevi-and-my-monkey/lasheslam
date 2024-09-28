@@ -2,7 +2,6 @@ package com.example.lasheslam
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -65,10 +64,24 @@ class RecoverPassFragment : BottomSheetDialogFragment() {
         auth.sendPasswordResetEmail(email)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    println("Correo de restablecimiento de contraseña enviado")
+                    val dialog = GenericDialogFragment()
+                        .setType(0)
+                        .setTitle(getString(R.string.recover_pass_title))
+                        .setMessage(getString(R.string.recover_pass_msj))
+                        .setPositiveButton(getString(R.string.accept)){
+                            dismiss()
+                        }
+                    dialog.show(requireActivity().supportFragmentManager, "customDialog")
                 } else {
                     task.exception?.let {
-                        println("Error al enviar el correo: ${it.message}")
+                        val dialog = GenericDialogFragment()
+                            .setType(1)
+                            .setTitle(getString(R.string.failed))
+                            .setMessage("${getString(R.string.recover_pass_msj_failed)} ${it.message}")
+                            .setNegativeButton(getString(R.string.accept)) {
+                                dismiss()
+                            }
+                        dialog.show(requireActivity().supportFragmentManager, "customDialog")
                     }
                 }
             }

@@ -3,11 +3,9 @@ package com.example.lasheslam
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.lasheslam.core.GralCtrlEditText
 import com.example.lasheslam.databinding.FragmentCreateAccountBinding
 import com.example.lasheslam.utils.Utilities.Companion.isValidEmail
@@ -87,9 +85,9 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
                         Log.i("AUTH","${user.email}")
                         val dialog = GenericDialogFragment()
                             .setType(0)
-                            .setTitle("Registro")
-                            .setMessage("El registro de su cuenta ha sido extiso")
-                            .setPositiveButton("Aceptar"){
+                            .setTitle(getString(R.string.register))
+                            .setMessage(getString(R.string.register_succes))
+                            .setPositiveButton(getString(R.string.accept)){
                                 dismiss()
                             }
                         dialog.show(requireActivity().supportFragmentManager, "customDialog")
@@ -98,9 +96,9 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
                     task.exception?.let {
                         val dialog = GenericDialogFragment()
                             .setType(1)
-                            .setTitle("Error")
-                            .setMessage("Error al registrar: ${it.message}")
-                            .setNegativeButton("Aceptar") {
+                            .setTitle(getString(R.string.failed))
+                            .setMessage("${getString(R.string.register_failed)} ${it.message}")
+                            .setNegativeButton(getString(R.string.accept)) {
                                 dismiss()
                             }
                         dialog.show(requireActivity().supportFragmentManager, "customDialog")

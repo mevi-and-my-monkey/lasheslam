@@ -22,10 +22,19 @@
     <string name="forgot_passgword">Has olvidado tu contraseña</string>
     <string name="create_account">Crear cuenta</string>
     <string name="continue_google">Continua con Google</string>
+    <string name="continue_invited_user">Continua como invitado</string>
     <string name="create">Crear</string>
     <string name="request">Solicitar</string>
     <string name="login_human">LashesLam by Mevi®</string>
     <string name="accept">Aceptar</string>
     <string name="cancel">Cancelar</string>
+    <string name="register">Registro</string>
+    <string name="register_succes">El registro de su cuenta ha sido extiso</string>
+    <string name="failed">Error</string>
+    <string name="register_failed">Error en el registro de la cuenta</string>
+    <string name="recover_pass_msj">Correo de restablecimiento de contraseña enviado</string>
+    <string name="recover_pass_msj_failed">Error al enviar el correo</string>
+    <string name="recover_pass_title">Restablecer contraseña</string>
+    <string name="log_out_msj">¿Estas seguro que deseas cerrar sesión?</string>
 
 </resources>

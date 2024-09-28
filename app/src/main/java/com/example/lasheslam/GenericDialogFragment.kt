@@ -50,13 +50,23 @@ class GenericDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val binding = FragmentGenericDialogBinding.inflate(layoutInflater)
 
-        if (type == 1){
-            val colorBackError = ContextCompat.getColor(requireContext(), R.color.colorBackError)
-            binding.layoutBack.setBackgroundColor(colorBackError)
-            binding.icon.setImageResource(R.drawable.ic_error)
-            binding.acceptButton.visibility = View.GONE
-            binding.cancelButton.visibility = View.VISIBLE
-            binding.cancelButton.text = negativeButtonText
+        when (type){
+            1->{
+                binding.layoutBack.background = ContextCompat.getDrawable(requireContext(), R.drawable.dialog_background_back_error)
+                binding.icon.setImageResource(R.drawable.ic_error)
+                binding.acceptButton.visibility = View.GONE
+                binding.cancelButton.visibility = View.VISIBLE
+                binding.cancelButton.text = negativeButtonText
+            }
+            2 ->{
+                binding.layoutBack.background = ContextCompat.getDrawable(requireContext(), R.drawable.dialog_background_log_out)
+                binding.icon.setImageResource(R.drawable.ic_log_out)
+                binding.cancelButton.visibility = View.VISIBLE
+                binding.acceptButton.visibility = View.VISIBLE
+                binding.cancelButton.text = negativeButtonText
+                binding.acceptButton.text = positiveButtonText
+
+            }
         }
         binding.dialogTitle.text = title
         binding.dialogMessage.text = message
@@ -87,6 +97,7 @@ class GenericDialogFragment : DialogFragment() {
 
         val dialog = builder.create()
 
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         return dialog
     }
 }

@@ -85,6 +85,8 @@ dependencies {
     implementation(libs.firebase.ui.auth)
     implementation(libs.firebase.auth)
     implementation(libs.play.services.auth)
+    // dataStore
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
 
 }
 kapt {

@@ -9,8 +9,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.lasheslam.core.User.Companion.dataStore
+import androidx.datastore.preferences.core.edit
 import com.example.lasheslam.core.GralCtrlEditText
+import com.example.lasheslam.core.User
 import com.example.lasheslam.databinding.FragmentLoginBinding
+import com.example.lasheslam.utils.Constants.Companion.MODE_INVITED
 import com.example.lasheslam.utils.Utilities.Companion.isValidEmail
 import com.example.lasheslam.utils.Utilities.Companion.setOnClickListenerCloseUnfocus
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -19,6 +23,12 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class LoginFragment : Fragment() {
 
@@ -44,8 +54,17 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        modInvited()
         initializeView()
     }
+
+    private fun modInvited() {
+        if (getSavedValue()){
+            User.userInvited = true
+            loginInterface?.showHomeActivity()
+        }
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is LoginInterface) {
@@ -56,6 +75,19 @@ class LoginFragment : Fragment() {
         super.onDetach()
         loginInterface = null
     }
+
+    private fun getSavedValue(): Boolean {
+        var savedValue = false
+        runBlocking {
+            val preferences = requireContext().dataStore.data.map { preferences ->
+                preferences[MODE_INVITED] ?: false
+            }
+            savedValue = preferences.first()
+        }
+        return savedValue
+    }
+
+    @OptIn(DelicateCoroutinesApi::class)
     @SuppressLint("SetTextI18n")
     private fun initializeView() {
         gralCtrlEditText.setDataEditText(
@@ -86,6 +118,15 @@ class LoginFragment : Fragment() {
         binding.creatAccountbutton.setOnClickListenerCloseUnfocus(requireContext(),binding.root) {
             val bottomSheet = CreateAccountFragment()
             bottomSheet.show(requireActivity().supportFragmentManager, bottomSheet.tag)
+        }
+        binding.continueInvitedUser.setOnClickListenerCloseUnfocus(requireContext(), binding.root){
+            GlobalScope.launch {
+                requireContext().dataStore.edit { preferences ->
+                    preferences[MODE_INVITED] = true
+                }
+            }
+            User.userInvited = true
+            loginInterface?.showHomeActivity()
         }
         binding.continueGooglebutton.setOnClickListenerCloseUnfocus(requireContext(), binding.root){
             iniciarSesionConGoogle()

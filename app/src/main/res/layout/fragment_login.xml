@@ -110,6 +110,19 @@
                 app:iconTint="@null"
                 app:layout_constraintTop_toBottomOf="@+id/enterButton" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/continueInvitedUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/continue_invited_user"
+                android:textColor="@color/secondaryColor"
+                android:background="@drawable/shape_rectangle"
+                app:icon="@drawable/ic_user_invited"
+                app:iconSize="25dp"
+                app:iconTint="@null"
+                app:layout_constraintTop_toBottomOf="@+id/continueGooglebutton" />
+
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView4"
                 style="@style/Text16W400H24"
@@ -119,7 +132,7 @@
                 android:text="@string/login_text_account"
                 android:textColor="@color/colorGray5"
                 android:textStyle="normal"
-                app:layout_constraintTop_toBottomOf="@+id/continueGooglebutton" />
+                app:layout_constraintTop_toBottomOf="@+id/continueInvitedUser" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/creatAccountbutton"

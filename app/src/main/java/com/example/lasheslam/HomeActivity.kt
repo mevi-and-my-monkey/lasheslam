@@ -6,11 +6,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.datastore.preferences.core.edit
+import com.example.lasheslam.core.User
+import com.example.lasheslam.core.User.Companion.dataStore
 import com.example.lasheslam.databinding.ActivityHomeBinding
+import com.example.lasheslam.utils.Constants
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -48,12 +55,34 @@ class HomeActivity : AppCompatActivity() {
         auth.signOut()
         googleSignInClient.signOut().addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
-                println("Sesión cerrada correctamente")
+                val dialog = GenericDialogFragment()
+                    .setType(2)
+                    .setTitle(getString(R.string.logout))
+                    .setMessage(getString(R.string.log_out_msj))
+                    .setPositiveButton(getString(R.string.accept)){
+                        deleteModeInvitedValue()
+                        User.userInvited = false
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                    .setNegativeButton(getString(R.string.cancel)){
+                        //No hacer nada
+                    }
+                dialog.show(supportFragmentManager, "customDialog")
             }
         }
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
+
+    }
+
+    @OptIn(DelicateCoroutinesApi::class)
+    fun deleteModeInvitedValue() {
+        GlobalScope.launch {
+            dataStore.edit { preferences ->
+                preferences.remove(Constants.MODE_INVITED)
+            }
+        }
+
     }
 
 }
