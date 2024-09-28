@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    tools:context=".CreateAccountFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_1"
+        style="@style/Text20W500H24"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_16"
+        android:gravity="center"
+        android:textStyle="italic"
+        android:text="@string/create_account"
+        android:textColor="@color/primaryColor"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:endIconMode="password_toggle"
+        app:layout_constraintTop_toBottomOf="@+id/emailTextField">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstNameTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_firstName"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lastNameTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_lastName"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneNumberTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_8"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phoneNumber"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/enterButton"
+        style="@style/Button"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_16"
+        android:text="@string/create"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

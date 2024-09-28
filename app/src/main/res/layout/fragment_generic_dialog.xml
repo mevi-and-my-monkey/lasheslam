@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layoutBack"
+    android:background="@color/colorBackSucces"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".GenericDialogFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icon"
+        android:layout_marginTop="@dimen/margin_24"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_success"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dialogTitle"
+        style="@style/Text20W500H24"
+        android:layout_marginTop="@dimen/margin_24"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        tools:text="@string/login"
+        android:textColor="@color/secondaryColor" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/dialogMessage"
+        style="@style/Text16W400H24"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_8"
+        android:gravity="center"
+        tools:text="@string/login"
+        android:textColor="@color/secondaryColor" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_16"
+        android:gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/acceptButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_8"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/accept"
+            app:backgroundTint="@color/colorButtonSucces"
+            android:textColor="@color/colorTextSucces" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_8"
+            android:layout_marginTop="@dimen/margin_small"
+            android:text="@string/cancel"
+            android:visibility="gone"
+            app:backgroundTint="@color/colorButtonError"
+            android:textColor="@color/colorTextError" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

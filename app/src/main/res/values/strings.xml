@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">lasheslam</string>
+    <string name="default_web_client_id">506028844866-psgv81pgb8acq0irkeg225lmj0toebqn.apps.googleusercontent.com</string>
+
+    <!--Login Activity -->
+    <string name="a_login_error_email_incorrect">Favor de ingresar un correo electrónico correcto.</string>
+    <string name="a_login_error_email_empty">Favor de ingresar su correo electrónico.</string>
+    <string name="a_login_error_nip_empty">Favor de ingresar su contraseña.</string>
+    <string name="a_login_error_name_empty">Favor de ingresar su nombre.</string>
+    <string name="a_login_error_phone_number_empty">Favor de ingresar su numero telefonico.</string>
+    <string name="validate_jwt">Tu sesion a finalizado.</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="login_email">Usuario</string>
+    <string name="login_password">Contraseña</string>
+    <string name="first_name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="phone_numbre">Telefono</string>
+    <string name="login_botton_enter">Acceder</string>
+    <string name="login_text_account">¿No tienes una cuenta?</string>
+    <string name="login_text_recover_password">Recuperar contraseña</string>
+    <string name="forgot_passgword">Has olvidado tu contraseña</string>
+    <string name="create_account">Crear cuenta</string>
+    <string name="continue_google">Continua con Google</string>
+    <string name="create">Crear</string>
+    <string name="request">Solicitar</string>
+    <string name="login_human">LashesLam by Mevi®</string>
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+
 </resources>

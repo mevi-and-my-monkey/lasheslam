@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
+    tools:context=".RecoverPassFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_1"
+        style="@style/Text20W500H24"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_16"
+        android:gravity="center"
+        android:text="@string/login_text_recover_password"
+        android:textColor="@color/primaryColor"
+        android:textStyle="italic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/tv_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/enterButton"
+        style="@style/Button"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_16"
+        android:text="@string/request"
+        app:layout_constraintTop_toBottomOf="@+id/passwordTextField" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "506028844866",
+    "project_id": "lasheslam",
+    "storage_bucket": "lasheslam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506028844866:android:ddd76b55787685224b4adb",
+        "android_client_info": {
+          "package_name": "com.example.lasheslam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506028844866-psgv81pgb8acq0irkeg225lmj0toebqn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lasheslam",
+            "certificate_hash": "f041cdd726726a142ef17d1866ac89df8d69d7c9"
+          }
+        },
+        {
+          "client_id": "506028844866-np4bfu8k0arbqdb19gki9oohvjhp659g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVuZf9aqclBqOMxffUyL-L-rfCEGTAzeQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506028844866-np4bfu8k0arbqdb19gki9oohvjhp659g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
