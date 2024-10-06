@@ -14,6 +14,7 @@ import androidx.datastore.preferences.core.edit
 import com.example.lasheslam.core.GralCtrlEditText
 import com.example.lasheslam.core.User
 import com.example.lasheslam.databinding.FragmentLoginBinding
+import com.example.lasheslam.utils.Constants.Companion.EMAIL
 import com.example.lasheslam.utils.Constants.Companion.MODE_INVITED
 import com.example.lasheslam.utils.Utilities.Companion.isValidEmail
 import com.example.lasheslam.utils.Utilities.Companion.setOnClickListenerCloseUnfocus
@@ -58,6 +59,14 @@ class LoginFragment : Fragment() {
         initializeView()
     }
 
+    override fun onResume() {
+        super.onResume()
+        val email = getSaveEmail()
+        if (email.isNotEmpty()) {
+            binding.etEmail.setText(email)
+        }
+    }
+
     private fun modInvited() {
         if (getSavedValue()){
             User.userInvited = true
@@ -85,6 +94,17 @@ class LoginFragment : Fragment() {
             savedValue = preferences.first()
         }
         return savedValue
+    }
+
+    private fun getSaveEmail(): String {
+        var email = ""
+        runBlocking {
+            val preferences = requireContext().dataStore.data.map { preferences ->
+                preferences[EMAIL] ?: ""
+            }
+            email = preferences.first()
+        }
+        return email
     }
 
     @OptIn(DelicateCoroutinesApi::class)
@@ -145,6 +165,7 @@ class LoginFragment : Fragment() {
         val currentUser = auth.currentUser
 
         if (currentUser != null) {
+            Log.i("AUT_LOG","${currentUser.email}")
             loginInterface?.showHomeActivity()
         } else {
             Log.i("AUT_LOG","No hay usuario autenticado")
