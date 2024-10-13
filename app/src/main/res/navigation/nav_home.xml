@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/homeFragment"
+    android:id="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.lasheslam.HomeFragment"
+        android:label="@string/home" />
+
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="com.example.lasheslam.CatalogFragment"
+        android:label="@string/catalog" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.lasheslam.ProfileFragment"
+        android:label="@string/profile" />
+</navigation>

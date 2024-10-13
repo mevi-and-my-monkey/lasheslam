@@ -37,4 +37,12 @@
     <string name="recover_pass_title">Restablecer contraseña</string>
     <string name="log_out_msj">¿Estas seguro que deseas cerrar sesión?</string>
 
+    <!--Home Activity -->
+    <string name="home">Inicio</string>
+    <string name="catalog">Catalogo</string>
+    <string name="profile">Mi perfil</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>

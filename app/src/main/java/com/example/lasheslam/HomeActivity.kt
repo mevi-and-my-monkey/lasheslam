@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.datastore.preferences.core.edit
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.lasheslam.core.User
 import com.example.lasheslam.core.User.Companion.dataStore
 import com.example.lasheslam.databinding.ActivityHomeBinding
@@ -21,6 +25,7 @@ import kotlinx.coroutines.launch
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var navController: NavController
     lateinit var auth: FirebaseAuth
     lateinit var googleSignInClient: GoogleSignInClient
 
@@ -36,18 +41,22 @@ class HomeActivity : AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         setContentView(binding.root)
-        initView()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_home_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+        binding.bottomNavigation.setupWithNavController(navController)
+    }
+
+    private fun initNavigation() {
+
     }
 
     private fun initView() {
-        binding.logoutButton.setOnClickListener {
-            logout()
-        }
+
     }
 
     private fun logout() {
