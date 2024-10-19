@@ -26,9 +26,15 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getUserData(User.userId) { userData ->
-            if (userData != null) {
-                binding.user.text = userData["name"] as String
+        if (!User.userInvited){
+            getUserData(User.userId) { userData ->
+                if (userData != null) {
+                    User.userName = userData["name"] as String
+                    User.userEmail = userData["email"] as String
+                    User.userPhone = userData["phoneNumber"] as String
+                    User.userAdmin = userData["isAdmin"] as Boolean
+                    binding.user.text = userData["name"] as String
+                }
             }
         }
     }

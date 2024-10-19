@@ -22,11 +22,11 @@ import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), HomeInterface {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var navController: NavController
-    lateinit var auth: FirebaseAuth
-    lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var auth: FirebaseAuth
+    private lateinit var googleSignInClient: GoogleSignInClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,15 +50,7 @@ class HomeActivity : AppCompatActivity() {
         binding.bottomNavigation.setupWithNavController(navController)
     }
 
-    private fun initNavigation() {
-
-    }
-
-    private fun initView() {
-
-    }
-
-    private fun logout() {
+    override fun logOut() {
         val auth = FirebaseAuth.getInstance()
         auth.signOut()
         googleSignInClient.signOut().addOnCompleteListener(this) { task ->
@@ -69,6 +61,7 @@ class HomeActivity : AppCompatActivity() {
                     .setMessage(getString(R.string.log_out_msj))
                     .setPositiveButton(getString(R.string.accept)){
                         deleteModeInvitedValue()
+                        clearData()
                         User.userInvited = false
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
@@ -80,9 +73,24 @@ class HomeActivity : AppCompatActivity() {
                 dialog.show(supportFragmentManager, "customDialog")
             }
         }
-
     }
 
+    override fun goLogin() {
+        deleteModeInvitedValue()
+        clearData()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun clearData(){
+        User.userInvited = false
+        User.userAdmin = false
+        User.userId = ""
+        User.userName = ""
+        User.userEmail = ""
+        User.userPhone = ""
+    }
     @OptIn(DelicateCoroutinesApi::class)
     fun deleteModeInvitedValue() {
         GlobalScope.launch {
@@ -90,7 +98,5 @@ class HomeActivity : AppCompatActivity() {
                 preferences.remove(Constants.MODE_INVITED)
             }
         }
-
     }
-
 }

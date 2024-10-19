@@ -1,14 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/profileCard"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="PROFILE" />
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="@dimen/margin_16"
+        app:cardPreventCornerOverlap="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/primaryColor"
+        app:strokeWidth="1dp">
 
-</FrameLayout>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_16"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_profile" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/nameUser"
+                style="@style/Text18W600H24"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                tools:text="@string/log_in_title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/emailUser"
+                style="@style/Text14W400H24"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="@dimen/margin_8"
+                android:gravity="center"
+                tools:text="correo electronico" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/btnEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_24"
+        android:checked="false"
+        android:text="@string/edit_info_profile"
+        android:textColor="@color/secondaryColor"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileCard"
+        app:thumbTint="@color/secondaryColor" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstNameTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEdit">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_firstName"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_name"
+            android:drawablePadding="@dimen/margin_8"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneNumberTextField"
+        style="@style/InputLayoutRHD"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="@dimen/margin_16"
+        android:textColorHint="@color/secondaryColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstNameTextField">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phoneNumber"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_phone"
+            android:drawablePadding="@dimen/margin_8"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logoinButton"
+        style="@style/Button"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/margin_extra_large"
+        android:text="@string/log_in_title"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextField" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/updateDataButton"
+        style="@style/Button"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/margin_extra_large"
+        android:text="@string/accept"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberTextField" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logoutButton"
+        style="@style/ButtonText"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/margin_16"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/log_out_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

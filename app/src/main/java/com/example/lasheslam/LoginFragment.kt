@@ -41,7 +41,7 @@ class LoginFragment : Fragment() {
     private var gralCtrlEditText = GralCtrlEditText()
     private var loginInterface: LoginInterface? = null
     private val db = Firebase.firestore
-    val GOOGLE_SIGN_IN = 100
+    private val GOOGLE_SIGN_IN = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -158,10 +158,9 @@ class LoginFragment : Fragment() {
     }
     private fun configurarGoogleSignIn() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))  // Aquí va el client ID de Firebase
+            .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
     }
 
@@ -172,7 +171,6 @@ class LoginFragment : Fragment() {
             User.userId = currentUser.uid
         }
         if (currentUser != null) {
-            User.userEmail = currentUser.email.toString()
             loginInterface?.showHomeActivity()
         } else {
             Log.i("AUT_LOG","No hay usuario autenticado")

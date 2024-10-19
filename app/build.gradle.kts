@@ -96,7 +96,9 @@ dependencies {
     implementation(libs.play.services.base)
     // dataStore
     implementation(libs.androidx.datastore.preferences)
-
+    // Glide
+    implementation(libs.glide.v4151)
+    annotationProcessor(libs.compiler.v4151)
 
 
 }

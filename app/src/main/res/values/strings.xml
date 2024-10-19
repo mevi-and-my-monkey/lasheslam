@@ -36,6 +36,9 @@
     <string name="recover_pass_msj_failed">Error al enviar el correo</string>
     <string name="recover_pass_title">Restablecer contraseña</string>
     <string name="log_out_msj">¿Estas seguro que deseas cerrar sesión?</string>
+    <string name="log_out_btn">Cerrar sesión</string>
+    <string name="log_in_title">Iniciar sesión</string>
+    <string name="edit_info_profile">Editar información personal</string>
 
     <!--Home Activity -->
     <string name="home">Inicio</string>

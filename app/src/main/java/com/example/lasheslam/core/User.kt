@@ -25,7 +25,10 @@ class User : Application() {
     companion object{
         val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
         var userInvited: Boolean = false
+        var userAdmin: Boolean = false
         var userId: String = ""
+        var userName: String = ""
         var userEmail: String = ""
+        var userPhone: String = ""
     }
 }
