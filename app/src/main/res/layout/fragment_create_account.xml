@@ -78,25 +78,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/lastNameTextField"
-        style="@style/InputLayoutRHD"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="@dimen/margin_16"
-        android:layout_marginTop="@dimen/margin_8"
-        android:textColorHint="@color/secondaryColor"
-        app:layout_constraintTop_toBottomOf="@+id/tv_1">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_lastName"
-            style="@style/EditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_name"
-            android:drawablePadding="@dimen/margin_8"
-            android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/phoneNumberTextField"
         style="@style/InputLayoutRHD"
         android:layout_width="match_parent"

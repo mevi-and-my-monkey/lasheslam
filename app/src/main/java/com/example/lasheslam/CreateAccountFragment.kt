@@ -9,13 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.datastore.preferences.core.edit
 import com.example.lasheslam.core.GralCtrlEditText
+import com.example.lasheslam.core.User
 import com.example.lasheslam.core.User.Companion.dataStore
 import com.example.lasheslam.databinding.FragmentCreateAccountBinding
 import com.example.lasheslam.utils.Constants.Companion.EMAIL
 import com.example.lasheslam.utils.Utilities.Companion.isValidEmail
 import com.example.lasheslam.utils.Utilities.Companion.setOnClickListenerCloseUnfocus
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -24,6 +28,7 @@ import kotlinx.coroutines.launch
 class CreateAccountFragment : BottomSheetDialogFragment() {
 
     private lateinit var binding: FragmentCreateAccountBinding
+    private val db = Firebase.firestore
     private var gralCtrlEditText = GralCtrlEditText()
     private var loginInterface: LoginInterface? = null
 
@@ -72,12 +77,6 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
             null
         )
         gralCtrlEditText.setDataEditText(
-            binding.lastNameTextField,
-            binding.etLastName,
-            getString(R.string.last_name),
-            null
-        )
-        gralCtrlEditText.setDataEditText(
             binding.phoneNumberTextField,
             binding.etPhoneNumber,
             getString(R.string.phone_numbre),
@@ -106,15 +105,12 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
                         }
                     }
                     user?.let {
-                        val userId = user.uid
-                        Log.i("AUTH","Registro exitoso, UID: $userId")
-                        Log.i("AUTH","${user.email}")
                         val dialog = GenericDialogFragment()
                             .setType(0)
                             .setTitle(getString(R.string.register))
                             .setMessage(getString(R.string.register_succes))
                             .setPositiveButton(getString(R.string.accept)){
-                                loginInterface?.showHomeActivity()
+                                saveUserData(user)
                                 dismiss()
                             }
                         dialog.show(requireActivity().supportFragmentManager, "customDialog")
@@ -158,4 +154,22 @@ class CreateAccountFragment : BottomSheetDialogFragment() {
         return validate
     }
 
+    private fun saveUserData(user: FirebaseUser) {
+        val userData = hashMapOf(
+            "email" to user.email,
+            "isAdmin" to false,
+            "name" to binding.etFirstName.text.toString(),
+            "phoneNumber" to binding.etPhoneNumber.text.toString()
+        )
+        User.userId = user.uid
+        db.collection("users").document(user.uid)
+            .set(userData)
+            .addOnSuccessListener {
+                loginInterface?.showHomeActivity()
+                Log.d("Firestore", "Usuario guardado correctamente")
+            }
+            .addOnFailureListener { e ->
+                Log.w("Firestore", "Error al guardar usuario", e)
+            }
+    }
 }

@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("com.google.gms.google-services")
+    alias(libs.plugins.google.firebase.crashlytics)
 }
 
 android {
@@ -80,12 +81,23 @@ dependencies {
     annotationProcessor(libs.compiler)
     //firebase
     implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
-    implementation(libs.firebase.ui.auth)
-    implementation(libs.firebase.auth)
-    implementation(libs.play.services.auth)
+
+    // Firebase libraries gestionadas por el BOM
+    implementation(libs.firebase.firestore.ktx)
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.crashlytics.ktx)
+    implementation(libs.firebase.analytics.ktx)
+
+    // Google Play Services (Autenticación con Google)
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+
+    // Firebase UI Auth (Autenticación con Firebase UI)
+    implementation("com.firebaseui:firebase-ui-auth:8.0.0")
+    implementation(libs.play.services.base)
     // dataStore
-    implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation(libs.androidx.datastore.preferences)
+
+
 
 }
 kapt {

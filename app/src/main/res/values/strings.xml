@@ -13,7 +13,7 @@
     <string name="logout">Cerrar sesión</string>
     <string name="login_email">Correo electrónico</string>
     <string name="login_password">Contraseña</string>
-    <string name="first_name">Nombre</string>
+    <string name="first_name">Nombre y Apellido</string>
     <string name="last_name">Apellido</string>
     <string name="phone_numbre">Telefono</string>
     <string name="login_botton_enter">Acceder</string>

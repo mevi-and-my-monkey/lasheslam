@@ -9,8 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.lasheslam.core.User.Companion.dataStore
 import androidx.datastore.preferences.core.edit
+import com.example.lasheslam.core.User.Companion.dataStore
 import com.example.lasheslam.core.GralCtrlEditText
 import com.example.lasheslam.core.User
 import com.example.lasheslam.databinding.FragmentLoginBinding
@@ -22,8 +22,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.first
@@ -37,6 +40,7 @@ class LoginFragment : Fragment() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private var gralCtrlEditText = GralCtrlEditText()
     private var loginInterface: LoginInterface? = null
+    private val db = Firebase.firestore
     val GOOGLE_SIGN_IN = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -160,17 +164,21 @@ class LoginFragment : Fragment() {
 
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
     }
+
     private fun openSession() {
         val auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
-
         if (currentUser != null) {
-            Log.i("AUT_LOG","${currentUser.email}")
+            User.userId = currentUser.uid
+        }
+        if (currentUser != null) {
+            User.userEmail = currentUser.email.toString()
             loginInterface?.showHomeActivity()
         } else {
             Log.i("AUT_LOG","No hay usuario autenticado")
         }
     }
+
     private fun checkFields(): Boolean {
         var validate = gralCtrlEditText.validateEditText(
             binding.emailTextField,
@@ -233,18 +241,34 @@ class LoginFragment : Fragment() {
         auth.signInWithCredential(credential).addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
+                    User.userId = user?.uid.toString()
                     user?.let {
-                        loginInterface?.showHomeActivity()
-                        println("Inicio de sesión con Google exitoso, UID: ${user.uid}")
-                        println("Inicio de sesión con Google exitoso, UID: ${user.email}")
-                        println("Inicio de sesión con Google exitoso, UID: ${user.displayName}")
-                        println("Inicio de sesión con Google exitoso, UID: ${user.photoUrl}")
+                        saveUserData(user)
                     }
                 } else {
                     task.exception?.let {
                         println("Error en la autenticación con Firebase: ${it.message}")
                     }
                 }
+            }
+    }
+
+    private fun saveUserData(user: FirebaseUser) {
+        val isAdmi = user.email == "alejandromevi26@gmail.com"
+        val userData = hashMapOf(
+            "email" to user.email,
+            "isAdmin" to isAdmi,
+            "name" to user.displayName,
+            "phoneNumber" to "*"
+            )
+        db.collection("users").document(user.uid)
+            .set(userData)
+            .addOnSuccessListener {
+                loginInterface?.showHomeActivity()
+                Log.d("Firestore", "Usuario guardado correctamente")
+            }
+            .addOnFailureListener { e ->
+                Log.w("Firestore", "Error al guardar usuario", e)
             }
     }
 }
